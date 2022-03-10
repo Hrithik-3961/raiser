@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Connect = () => {
   const [metamaskInstalled, setMetamaskInstalled] = useState(false);
   const [currentAccount, setCurrentAccount] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (
@@ -37,6 +41,7 @@ const Connect = () => {
       alert("Please connect to MetaMask to continue !");
     } else if (accounts[0] !== currentAccount) {
       setCurrentAccount(accounts[0]);
+      navigate("/home");
       console.log(accounts[0]);
     }
   }
@@ -68,24 +73,31 @@ const Connect = () => {
   }
 
   return (
-    <div>
-      {metamaskInstalled === true ? (
-        <button onClick={connect} disabled={currentAccount !== null}>
-          {currentAccount !== null ? "Connected" : "Connect"}
-        </button>
-      ) : (
-        <p>
-          Download and enable{" "}
-          <a
-            href="https://metamask.io/download/"
-            target="_blank"
-            rel="noreferrer"
+    <div className="connect-background">
+      <div className="blur">
+        <h1>Welcome To Raiser!</h1>
+        {metamaskInstalled === true ? (
+          <Button
+            variant="outline-warning"
+            onClick={connect}
+            disabled={currentAccount !== null}
           >
-            Metamask
-          </a>{" "}
-          to proceed
-        </p>
-      )}
+            {currentAccount !== null ? "Connected" : "Connect with Metamask"}
+          </Button>
+        ) : (
+          <p>
+            Download and enable{" "}
+            <a
+              href="https://metamask.io/download/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Metamask
+            </a>{" "}
+            to proceed
+          </p>
+        )}
+      </div>
     </div>
   );
 };
