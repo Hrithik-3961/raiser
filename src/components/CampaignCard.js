@@ -1,11 +1,14 @@
 import { Card } from "react-bootstrap";
 import { CircularProgressbar } from "react-circular-progressbar";
+import { useNavigate } from "react-router-dom";
 import "react-circular-progressbar/dist/styles.css";
 
 const CampaignCard = ({ imgSrc, title, raised, required, createdBy }) => {
   const percentageRaised = Math.round((raised / required) * 100);
+  const navigate = useNavigate();
+
   return (
-    <Card className="campaign-card">
+    <Card className="campaign-card" onClick={() => navigate("/campaign")}>
       <Card.Img variant="top" style={{ width: "inherit" }} src={imgSrc} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
