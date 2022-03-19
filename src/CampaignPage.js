@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import ContractKit from "@celo/contractkit";
+const ContractKit = require("@celo/contractkit");
 
 const CampaignPage = () => {
   const web3 = new Web3("https://alfajores-forno.celo-testnet.org");
@@ -12,6 +12,8 @@ const CampaignPage = () => {
     let cUSDBalance = await cUSDtoken.balanceOf(anAddress);
     console.log(`${anAddress} cUSD balance: ${cUSDBalance.toString()}`);
   }
+
+  getBalance();
 
   return (
     <div>

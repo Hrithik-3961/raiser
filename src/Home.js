@@ -8,6 +8,7 @@ const campaigns = [
     raised: 100,
     required: 190,
     createdBy: "Person1",
+    key: 1,
   },
   {
     imgSrc:
@@ -54,13 +55,14 @@ const campaigns = [
 const Home = () => {
   return (
     <div className="card-container">
-      {campaigns.map((campaign) => (
+      {campaigns.map((campaign, index) => (
         <CampaignCard
           imgSrc={campaign.imgSrc}
           title={campaign.title}
           raised={campaign.raised}
           required={campaign.required}
           createdBy={campaign.createdBy}
+          key={index}
         />
       ))}
     </div>
