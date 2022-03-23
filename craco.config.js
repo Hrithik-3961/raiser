@@ -12,6 +12,7 @@ module.exports = {
           crypto: require.resolve("crypto-browserify"),
           os: require.resolve("os-browserify"),
           url: require.resolve("url"),
+          path: require.resolve("path-browserify"),
         },
       },
       plugins: [

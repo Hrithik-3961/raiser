@@ -8,7 +8,14 @@ const CampaignCard = ({ imgSrc, title, raised, required, createdBy }) => {
   const navigate = useNavigate();
 
   return (
-    <Card className="campaign-card" onClick={() => navigate("/campaign")}>
+    <Card
+      className="campaign-card"
+      onClick={() =>
+        navigate("/campaign", {
+          state: { imgSrc, title, raised, required, createdBy },
+        })
+      }
+    >
       <Card.Img variant="top" style={{ width: "inherit" }} src={imgSrc} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>

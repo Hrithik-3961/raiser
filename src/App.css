@@ -64,7 +64,35 @@
   font-weight: bold;
 }
 
+.progress span {
+  width: 60px;
+}
+
 .campaign-card:hover {
   box-shadow: 0 0 11px rgba(3, 3, 3, 0.2);
   cursor: pointer;
+}
+
+#donate-btn {
+  display: block;
+  border-radius: 25px;
+  width: 25vw;
+}
+
+.container {
+  margin: 10vh 25vw;
+}
+
+.image {
+  display: inline-block;
+}
+
+.details {
+  display: inline-block;
+  margin: 5vw;
+  text-align: center;
+}
+
+.details .progress {
+  display: block;
 }
